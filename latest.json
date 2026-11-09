@@ -1,7 +1,7 @@
 {
-  "versionCode": 13,
-  "versionName": "1.4.0",
+  "versionCode": 14,
+  "versionName": "1.4.1",
   "apkUrl": "https://github.com/neriaco555-del/shirim-app/releases/latest/download/shirim.apk",
-  "notes": "עדכון אוטומטי, פלייליסטים, חיפוש לפי כיוון (חילוני/דתי/חרדי) ולפי זמרים, ותיקוני יציבות.",
+  "notes": "עדכון גרסה: שיפורי יציבות ובדיקת מנגנון העדכון האוטומטי.",
   "size": 60711207
 }
