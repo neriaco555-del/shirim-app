@@ -567,6 +567,14 @@ img {
   color: var(--muted-2);
 }
 
+.stat--live strong {
+  background: linear-gradient(180deg, #d8ffe8, #3ee579);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
 .stat-sep {
   width: 1px;
   height: 32px;
@@ -1857,6 +1865,27 @@ img {
   font-size: 1rem;
   line-height: 1.75;
   color: var(--muted);
+}
+
+.live-downloads {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 24px;
+  padding: 8px 15px;
+  border: 1px solid rgba(29, 185, 84, 0.24);
+  border-radius: 999px;
+  background: rgba(29, 185, 84, 0.08);
+  color: var(--muted);
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.live-downloads b {
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
 
 .download-actions {

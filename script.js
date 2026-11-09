@@ -153,6 +153,88 @@
     });
   }
 
+  /* ---------- live download counter ---------- */
+
+  const downloadCounts = document.querySelectorAll("[data-downloads]");
+  const repo = "neriaco555-del/shirim-app";
+
+  const formatCount = (value) =>
+    new Intl.NumberFormat("he-IL").format(Math.max(0, Math.round(value)));
+
+  function renderDownloads(value) {
+    const final = formatCount(value);
+    downloadCounts.forEach((el) => {
+      el.textContent = final;
+    });
+  }
+
+  function animateDownloads(value) {
+    if (reduceMotion) {
+      renderDownloads(value);
+      return;
+    }
+
+    const duration = 1200;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = formatCount(value * eased);
+      downloadCounts.forEach((el) => {
+        el.textContent = current;
+      });
+      if (progress < 1) requestAnimationFrame(tick);
+      else renderDownloads(value);
+    };
+
+    requestAnimationFrame(tick);
+  }
+
+  async function loadDownloadCount() {
+    if (!downloadCounts.length) return;
+
+    const endpoints = [
+      {
+        url: `https://img.shields.io/github/downloads/${repo}/total.json`,
+        pick: (data) => Number(data && data.value),
+      },
+      {
+        url: `https://api.github.com/repos/${repo}/releases`,
+        pick: (data) =>
+          Array.isArray(data)
+            ? data.reduce(
+                (total, release) =>
+                  total +
+                  (release.assets || []).reduce(
+                    (sum, asset) => sum + (asset.download_count || 0),
+                    0
+                  ),
+                0
+              )
+            : NaN,
+      },
+    ];
+
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint.url, {
+          headers: { Accept: "application/json" },
+        });
+        if (!response.ok) continue;
+        const value = endpoint.pick(await response.json());
+        if (Number.isFinite(value)) {
+          animateDownloads(value);
+          return;
+        }
+      } catch (_) {
+        /* try the next source */
+      }
+    }
+  }
+
+  loadDownloadCount();
+
   /* ---------- download toast ---------- */
 
   let toastTimer;
