@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>שירים — כל המוזיקה הישראלית, במקום אחד</title>
+  <meta name="description" content="שירים היא אפליקציית המוזיקה הישראלית שמרכזת את כל הז'אנרים — חילוני, דתי וחרדי — עם חיפוש חכם, פלייליסטים אישיים, הורדות אופליין ונגן רקע. הורידו בחינם." />
+  <meta name="theme-color" content="#07080a" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="שירים — כל המוזיקה הישראלית, במקום אחד" />
+  <meta property="og:description" content="חילוני, דתי וחרדי — חיפוש חכם, פלייליסטים אישיים, הורדות אופליין ונגן רקע. הורידו בחינם." />
+  <meta property="og:image" content="assets/icon.png" />
+
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+<body id="top">
+
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="blob blob--green"></span>
+    <span class="blob blob--violet"></span>
+    <span class="blob blob--cyan"></span>
+    <span class="grid-glow"></span>
+  </div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="שירים — לדף הבית">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 18V5.5l10-2V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+      </span>
+      <span class="brand-name">שירים</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="ניווט ראשי">
+      <a href="#features">יכולות</a>
+      <a href="#sectors">סגנונות</a>
+      <a href="#player">הנגן</a>
+      <a href="#download">הורדה</a>
+      <a href="#faq">שאלות</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn--small btn--primary" href="https://github.com/neriaco555-del/shirim-app/releases/latest/download/shirim.apk" download>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        הורדה
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="פתיחת תפריט" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="badge reveal">
+          <span class="badge-dot"></span>
+          גרסה <bdi>1.4.1</bdi> · לאנדרואיד
+        </div>
+
+        <h1 id="heroTitle" class="reveal" style="--d:.08s">
+          מוזיקה<br />
+          <span class="grad">שלא נגמרת.</span>
+        </h1>
+
+        <p class="lead reveal" style="--d:.16s">
+          כל השירים הישראלים שאתם אוהבים, במקום אחד. חילוני, דתי וחרדי —
+          עם חיפוש חכם, פלייליסטים אישיים והורדות להאזנה אופליין.
+          בלי סיבוכים. בלי רעש. רק מוזיקה.
+        </p>
+
+        <div class="hero-actions reveal" style="--d:.24s">
+          <a class="btn btn--primary btn--large" href="https://github.com/neriaco555-del/shirim-app/releases/latest/download/shirim.apk" download>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            הורדת האפליקציה
+          </a>
+          <a class="btn btn--ghost btn--large" href="#features">
+            גלו את היכולות
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-meta reveal" style="--d:.3s">
+          <span><bdi>APK</bdi> · <bdi>58 MB</bdi> · אנדרואיד <bdi>6.0+</bdi></span>
+          <span class="meta-free">חינם לגמרי</span>
+        </div>
+
+        <div class="stats reveal" style="--d:.38s">
+          <div class="stat"><strong><bdi>18+</bdi></strong><span>אמנים</span></div>
+          <div class="stat-sep" aria-hidden="true"></div>
+          <div class="stat"><strong><bdi>4</bdi></strong><span>סגנונות</span></div>
+          <div class="stat-sep" aria-hidden="true"></div>
+          <div class="stat"><strong><bdi>∞</bdi></strong><span>שירים</span></div>
+          <div class="stat-sep" aria-hidden="true"></div>
+          <div class="stat"><strong><bdi>0₪</bdi></strong><span>התשלום</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" style="--d:.2s" aria-hidden="true">
+        <div class="phone-wrap" id="phoneWrap">
+          <div class="phone-glow" aria-hidden="true"></div>
+
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="p-status">
+                <bdi>9:41</bdi>
+                <div class="p-status-icons" aria-hidden="true">
+                  <svg viewBox="0 0 18 12" width="15" height="10"><rect x="0" y="7" width="3" height="5" rx="1" fill="currentColor"/><rect x="5" y="4.5" width="3" height="7.5" rx="1" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor" opacity=".4"/></svg>
+                  <svg viewBox="0 0 16 12" width="14" height="10"><path d="M8 11.5 1 4.5a10 10 0 0 1 14 0Z" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 22 12" width="20" height="10"><rect x="0.5" y="1.5" width="17" height="9" rx="2.5" stroke="currentColor" fill="none"/><rect x="2" y="3" width="13" height="6" rx="1.5" fill="currentColor"/><rect x="19" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg>
+                </div>
+              </div>
+              <div class="app">
+                <div class="app-header">
+                  <div>
+                    <div class="app-greet">ערב טוב</div>
+                    <div class="app-sub">מה בא לך לשמוע?</div>
+                  </div>
+                  <div class="app-avatar" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l9-1.8V16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="15.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+                  </div>
+                </div>
+
+                <div class="app-search">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <span>חיפוש שירים, אמנים ואלבומים</span>
+                </div>
+
+                <div class="app-sectors">
+                  <span class="app-pill app-pill--active">הכל</span>
+                  <span class="app-pill">חילוני</span>
+                  <span class="app-pill">דתי</span>
+                  <span class="app-pill">חרדי</span>
+                </div>
+
+                <div class="app-row-title">
+                  <span>נשמע לאחרונה</span>
+                  <span class="app-all">הצג הכל</span>
+                </div>
+
+                <div class="app-tracks">
+                  <div class="app-track">
+                    <div class="app-art art-a">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l9-1.8V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="15.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                      <span class="art-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    </div>
+                    <div class="app-track-text">
+                      <div class="app-track-name">להיט השבוע</div>
+                      <div class="app-track-artist">עומר אדם</div>
+                    </div>
+                    <span class="app-more">⋯</span>
+                  </div>
+
+                  <div class="app-track">
+                    <div class="app-art art-b">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l9-1.8V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="15.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                    </div>
+                    <div class="app-track-text">
+                      <div class="app-track-name">שמע בני</div>
+                      <div class="app-track-artist">חנן בן ארי</div>
+                    </div>
+                    <span class="app-more">⋯</span>
+                  </div>
+
+                  <div class="app-track">
+                    <div class="app-art art-c">
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l9-1.8V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="15.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                    </div>
+                    <div class="app-track-text">
+                      <div class="app-track-name">ניגון חסידי</div>
+                      <div class="app-track-artist">יעקב שוואקי</div>
+                    </div>
+                    <span class="app-more">⋯</span>
+                  </div>
+                </div>
+
+                <div class="app-spacer"></div>
+
+                <div class="app-mini">
+                  <div class="app-mini-art art-a">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l9-1.8V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="15.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                  </div>
+                  <div class="app-mini-text">
+                    <div class="app-mini-name">להיט השבוע</div>
+                    <div class="app-mini-artist">עומר אדם</div>
+                  </div>
+                  <div class="app-mini-play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7.5v9l7-4.5z"/></svg>
+                  </div>
+                  <span class="app-mini-progress" aria-hidden="true"></span>
+                </div>
+
+                <div class="app-nav" aria-hidden="true">
+                  <span class="app-nav-item app-nav-item--active"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+                  <span class="app-nav-item"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+                  <span class="app-nav-item"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg></span>
+                </div>
+              </div>
+            </div>
+            <span class="phone-notch" aria-hidden="true"></span>
+          </div>
+          <div class="float-chip chip--1">
+            <span class="chip-ico chip-ico--green">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19.5h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span><b>הורדה אופליין</b><i>המוזיקה איתכם בכל מקום</i></span>
+          </div>
+
+          <div class="float-chip chip--2">
+            <span class="chip-ico chip-ico--violet">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 14v-2a8 8 0 0 1 16 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="2.5" y="13" width="4" height="7" rx="1.6" stroke="currentColor" stroke-width="2"/><rect x="17.5" y="13" width="4" height="7" rx="1.6" stroke="currentColor" stroke-width="2"/></svg>
+            </span>
+            <span><b>נגן רקע</b><i>שליטה גם כשהמסך כבוי</i></span>
+          </div>
+
+          <div class="float-chip chip--3">
+            <span class="chip-ico chip-ico--cyan">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span><b>חיפוש חכם</b><i>שירים, אמנים ואלבומים</i></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="marquee-section" aria-label="אמנים באפליקציה">
+      <div class="marquee-row">
+        <div class="marquee" aria-hidden="true">
+          <span>עומר אדם</span><i>✦</i><span>נועה קירל</span><i>✦</i><span>אייל גולן</span><i>✦</i><span>שרית חדד</span><i>✦</i><span>עידן חביב</span><i>✦</i><span>עברי לידר</span><i>✦</i><span>אושר כהן</span><i>✦</i><span>נטע ברזילי</span><i>✦</i><span>עומר אדם</span><i>✦</i><span>נועה קירל</span><i>✦</i><span>אייל גולן</span><i>✦</i><span>שרית חדד</span><i>✦</i><span>עידן חביב</span><i>✦</i><span>עברי לידר</span><i>✦</i><span>אושר כהן</span><i>✦</i><span>נטע ברזילי</span><i>✦</i>
+        </div>
+      </div>
+      <div class="marquee-row marquee-row--reverse">
+        <div class="marquee" aria-hidden="true">
+          <span>חנן בן ארי</span><i>✦</i><span>ישי ריבו</span><i>✦</i><span>עקיבא</span><i>✦</i><span>איתי ג'רופי</span><i>✦</i><span>אברהם פריד</span><i>✦</i><span>יעקב שוואקי</span><i>✦</i><span>מוטי שטיינמץ</span><i>✦</i><span>בני פרידמן</span><i>✦</i><span>לוי פולק</span><i>✦</i><span>שוקי שטרן</span><i>✦</i><span>חנן בן ארי</span><i>✦</i><span>ישי ריבו</span><i>✦</i><span>עקיבא</span><i>✦</i><span>איתי ג'רופי</span><i>✦</i><span>אברהם פריד</span><i>✦</i><span>יעקב שוואקי</span><i>✦</i><span>מוטי שטיינמץ</span><i>✦</i><span>בני פרידמן</span><i>✦</i><span>לוי פולק</span><i>✦</i><span>שוקי שטרן</span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features" id="features">
+      <div class="section-head">
+        <span class="kicker reveal">מה מקבלים</span>
+        <h2 class="section-title reveal" style="--d:.06s">כל מה שצריך.<br /><span class="grad-soft">בחוויה אחת.</span></h2>
+        <p class="section-sub reveal" style="--d:.12s">
+          לא עוד אפליקציה עמוסה. שירים נותנת לכם בדיוק את מה שצריך כדי להאזין —
+          מהר, נקי ופשוט.
+        </p>
+      </div>
+
+      <div class="bento">
+        <article class="card card--wide reveal" style="--d:.04s">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="card-icon icon--green">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.9"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+          </div>
+          <h3>חיפוש חכם</h3>
+          <p>מצאו כל שיר, אמן או אלבום בשניות. תוצאות בזמן אמת, גם כשלא זוכרים את השם המדויק.</p>
+          <div class="mini-search" aria-hidden="true">
+            <span class="mini-search-bar"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m20 20-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>עומר אדם</span>
+            <span class="mini-search-result">
+              <span class="mini-avatar art-a">♪</span>
+              <span><b>להיט השבוע</b><i>עומר אדם</i></span>
+              <span class="mini-play">▶</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="card reveal" style="--d:.1s">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="card-icon icon--violet">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h7M4 12h10M4 17h6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M16 16.5a3 3 0 1 0 3-3V7l-2 .5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>כל הסגנונות</h3>
+          <p>חילוני, דתי וחרדי — מסודר לפי מה שמתאים לכם, בלי לחפש יותר מדי.</p>
+        </article>
+
+        <article class="card reveal" style="--d:.16s">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="card-icon icon--cyan">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19.5h14" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>האזנה אופליין</h3>
+          <p>הורידו שירים פעם אחת והאזינו להם בכל מקום — בלי אינטרנט ובלי דאגות.</p>
+        </article>
+
+        <article class="card reveal" style="--d:.22s">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="card-icon icon--pink">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>אהבתי ושמירה</h3>
+          <p>סמנו בלב, שמרו לאחרונות וחזרו בדיוק למקום שבו עצרתם.</p>
+        </article>
+
+        <article class="card reveal" style="--d:.28s">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="card-icon icon--amber">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.9"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+          </div>
+          <h3>פלייליסטים אישיים</h3>
+          <p>צרו, שנו שמות וסדרו את המיקס שלכם — לכל מצב רוח ולכל רגע.</p>
+        </article>
+
+        <article class="card card--wide reveal" style="--d:.34s">
+          <div class="card-glow" aria-hidden="true"></div>
+          <div class="card-icon icon--violet">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 14v-2a8 8 0 0 1 16 0v2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><rect x="2.5" y="13" width="4" height="7" rx="1.6" stroke="currentColor" stroke-width="1.9"/><rect x="17.5" y="13" width="4" height="7" rx="1.6" stroke="currentColor" stroke-width="1.9"/></svg>
+          </div>
+          <h3>נגן שרץ ברקע</h3>
+          <p>שליטה מלאה מההתראה ומסך הנעילה. המוזיקה ממשיכה גם כשהמסך כבוי — בדיוק כמו שצריך.</p>
+          <div class="mini-player" aria-hidden="true">
+            <span class="mini-player-art art-b">♪</span>
+            <span class="mini-player-text"><b>שמע בני</b><i>חנן בן ארי</i></span>
+            <span class="mini-eq"><i></i><i></i><i></i><i></i></span>
+            <span class="mini-controls">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+            </span>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="section sectors" id="sectors">
+      <div class="section-head section-head--center">
+        <span class="kicker reveal">מותאם לכם</span>
+        <h2 class="section-title reveal" style="--d:.06s">בחרו את <span class="grad-soft">העולם שלכם.</span></h2>
+        <p class="section-sub reveal" style="--d:.12s">
+          כל סגנון מקבל מרחב משלו — רשימות, אמנים וחיפושים חכמים שמבינים אתכם.
+        </p>
+      </div>
+
+      <div class="sector-grid">
+        <article class="sector sector--secular reveal" style="--d:.04s">
+          <div class="sector-top">
+            <span class="sector-tag">חילוני</span>
+            <span class="sector-glyph">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l9-1.8V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="15.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+          </div>
+          <h3>פופ, רוק והיפ־הופ</h3>
+          <p>הלהיטים הישראלים שכולם מדברים עליהם, במקום אחד.</p>
+          <div class="sector-artists">
+            <span>עומר אדם</span><span>נועה קירל</span><span>אייל גולן</span><span>שרית חדד</span><span>עידן חביב</span><span>עברי לידר</span>
+          </div>
+          <a class="sector-link" href="#download">התחילו להאזין
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="sector sector--religious reveal" style="--d:.12s">
+          <div class="sector-top">
+            <span class="sector-tag">דתי</span>
+            <span class="sector-glyph">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M7 8l10 8M17 8 7 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3>שירי אמונה</h3>
+          <p>מוזיקה דתית־לאומית שמחברת בין הלב לנשמה.</p>
+          <div class="sector-artists">
+            <span>חנן בן ארי</span><span>ישי ריבו</span><span>עקיבא</span><span>איתי ג'רופי</span>
+          </div>
+          <a class="sector-link" href="#download">התחילו להאזין
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="sector sector--haredi reveal" style="--d:.2s">
+          <div class="sector-top">
+            <span class="sector-tag">חרדי</span>
+            <span class="sector-glyph">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 4l2 5.2L19.5 11 14 13l-2 5-2-5-5.5-2 5.5-1.8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <h3>חסידות וניגונים</h3>
+          <p>מוזיקה חרדית, שירי קודש וניגונים שמרגישים כמו בית.</p>
+          <div class="sector-artists">
+            <span>אברהם פריד</span><span>יעקב שוואקי</span><span>מוטי שטיינמץ</span><span>בני פרידמן</span><span>לוי פולק</span>
+          </div>
+          <a class="sector-link" href="#download">התחילו להאזין
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section player-section" id="player">
+      <div class="player-copy">
+        <span class="kicker reveal">הנגן</span>
+        <h2 class="section-title reveal" style="--d:.06s">מסך אחד.<br /><span class="grad-soft">שליטה מלאה.</span></h2>
+        <p class="section-sub reveal" style="--d:.12s">
+          עטיפה חיה, התקדמות מדויקת, תור חכם, ערבוב וחזרה —
+          כל מה שנגן מוזיקה צריך להיות, בלי לוותר על עיצוב.
+        </p>
+
+        <ul class="player-list reveal" style="--d:.18s">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>תור נגינה חכם עם ערבוב אמיתי</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>שליטה מהתראה ומסך נעילה</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 6.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>חיבור אוטומטי להמשך האזנה</li>
+        </ul>
+      </div>
+
+      <div class="player-stage reveal" style="--d:.14s">
+        <div class="player-card">
+          <div class="player-cover">
+            <div class="cover-ring" aria-hidden="true"></div>
+            <div class="cover-inner">
+              <span class="cover-note">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l9-1.8V16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="15.5" cy="16" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+              </span>
+              <span class="cover-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+          </div>
+
+          <div class="player-body">
+            <div class="player-now">
+              <span class="live-dot"></span>
+              מתנגן כעת
+            </div>
+            <h3>שמע בני</h3>
+            <p>חנן בן ארי · סינגל</p>
+
+            <div class="player-progress" aria-hidden="true"><span></span></div>
+            <div class="player-times"><span>1:24</span><span>3:48</span></div>
+
+            <div class="player-controls" aria-hidden="true">
+              <span class="ctrl">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M16 4h2l3 7-3 7h-2M8 4H6l-3 7 3 7h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4v16m0-11 3-3m-3 3-3-3m3 11 3 3m-3-3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="ctrl prev">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+              </span>
+              <span class="ctrl ctrl--play">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+              </span>
+              <span class="ctrl next">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zm-9.5 6 8.5 6V6z"/></svg>
+              </span>
+              <span class="ctrl">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M17 4l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 7H9a5 5 0 0 0 0 10h1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="stage-glow" aria-hidden="true"></div>
+      </div>
+    </section>
+    <section class="section download" id="download">
+      <div class="download-panel reveal">
+        <div class="download-orb" aria-hidden="true"></div>
+        <div class="download-grid">
+          <div class="download-main">
+            <span class="kicker">הגיע הזמן</span>
+            <h2 class="download-title">מוכנים<br /><span class="grad">להאזין?</span></h2>
+            <p class="download-sub">
+              הורידו את שירים בחינם, התקינו ותתחילו ליהנות מכל המוזיקה הישראלית —
+              ללא הרשמה וללא סיבוכים.
+            </p>
+            <div class="download-actions">
+              <a class="btn btn--primary btn--large btn--glow" href="https://github.com/neriaco555-del/shirim-app/releases/latest/download/shirim.apk" download>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                הורדת <bdi>APK</bdi> · גרסה <bdi>1.4.1</bdi>
+              </a>
+              <a class="btn btn--ghost btn--large" href="#faq">איך מתקינים?</a>
+            </div>
+            <div class="download-specs">
+              <div class="spec"><span>גרסה</span><strong><bdi>1.4.1</bdi></strong></div>
+              <div class="spec"><span>גודל</span><strong><bdi>58 MB</bdi></strong></div>
+              <div class="spec"><span>פלטפורמה</span><strong>Android</strong></div>
+              <div class="spec"><span>מחיר</span><strong>חינם</strong></div>
+            </div>
+          </div>
+          <div class="download-side">
+            <div class="install-card">
+              <div class="install-head">
+                <span class="install-badge">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19.5h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <div><b>התקנה ב־3 צעדים</b><i>פחות מדקה וזה אצלכם</i></div>
+              </div>
+              <ol class="install-steps">
+                <li><span class="step-num">1</span><div><b>מורידים את הקובץ</b><p>לוחצים על כפתור ההורדה והקובץ נשמר במכשיר.</p></div></li>
+                <li><span class="step-num">2</span><div><b>מאשרים התקנה</b><p>אם תתבקשו — אשרו התקנה ממקורות לא ידועים.</p></div></li>
+                <li><span class="step-num">3</span><div><b>מתקינים ומאזינים</b><p>פותחים את שירים ומתחילים ליהנות.</p></div></li>
+              </ol>
+              <div class="install-note">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 9.5-4-1.2-7-5-7-9.5V6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                הקובץ נקי, ישיר, וללא הרשמה.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section faq" id="faq">
+      <div class="section-head section-head--center">
+        <span class="kicker reveal">שאלות נפוצות</span>
+        <h2 class="section-title reveal" style="--d:.06s">רגע לפני<br /><span class="grad-soft">שמתחילים.</span></h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item reveal" style="--d:.02s">
+          <summary><span>האם האפליקציה חינמית?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>כן. שירים היא חינמית לגמרי — בלי מנוי, בלי רכישות ובלי הפתעות.</p>
+        </details>
+        <details class="faq-item reveal" style="--d:.06s">
+          <summary><span>צריך להירשם או לפתוח חשבון?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>לא. מורידים, מתקינים ומתחילים להאזין. כל מה שאתם שומרים נשמר מקומית במכשיר שלכם.</p>
+        </details>
+        <details class="faq-item reveal" style="--d:.1s">
+          <summary><span>האם אפשר להאזין בלי אינטרנט?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>כן. שירים שהורדתם זמינים להאזנה גם ללא חיבור לאינטרנט, בכל מקום.</p>
+        </details>
+        <details class="faq-item reveal" style="--d:.14s">
+          <summary><span>איך מתקינים קובץ APK?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>מורידים את הקובץ, פותחים אותו, ואם אנדרואיד מבקש — מאשרים התקנה ממקורות לא ידועים בהגדרות. ההתקנה לוקחת פחות מדקה.</p>
+        </details>
+        <details class="faq-item reveal" style="--d:.18s">
+          <summary><span>אילו גרסאות אנדרואיד נתמכות?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>האפליקציה תומכת באנדרואיד 6.0 ומעלה, ומתאימה לרוב המכשירים הנפוצים.</p>
+        </details>
+        <details class="faq-item reveal" style="--d:.22s">
+          <summary><span>מה קורה לעדכונים?</span><span class="faq-plus" aria-hidden="true"></span></summary>
+          <p>כשתצא גרסה חדשה תופיע התראה בתוך האפליקציה, ותוכלו לעדכן בלחיצה — בלי לחפש מחדש.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="שירים — לדף הבית">
+          <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 18V5.5l10-2V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="6" cy="18" r="3" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+          </span>
+          <span class="brand-name">שירים</span>
+        </a>
+        <p>המוזיקה הישראלית, במקום אחד.<br />חילוני, דתי וחרדי — בחוויה אחת נקייה.</p>
+        <a class="footer-download" href="https://github.com/neriaco555-del/shirim-app/releases/latest/download/shirim.apk" download>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          הורדה לאנדרואיד · <bdi>1.4.1</bdi>
+        </a>
+      </div>
+
+      <nav class="footer-links" aria-label="קישורי תחתית">
+        <div>
+          <b>האפליקציה</b>
+          <a href="#features">יכולות</a>
+          <a href="#sectors">סגנונות</a>
+          <a href="#player">הנגן</a>
+          <a href="#download">הורדה</a>
+        </div>
+        <div>
+          <b>מידע</b>
+          <a href="#faq">שאלות נפוצות</a>
+          <a href="#download">התקנה</a>
+          <a href="#top">חזרה למעלה</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <bdi>2026</bdi> שירים. כל הזכויות שמורות.</span>
+      <span class="footer-made">נבנה באהבה למוזיקה ישראלית</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast-dot"></span>
+    ההורדה מתחילה… שיהיה לכם בכיף
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
