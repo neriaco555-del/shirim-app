@@ -1,7 +1,7 @@
 {
-  "versionCode": 18,
-  "versionName": "1.6.2",
+  "versionCode": 20,
+  "versionName": "1.6.3",
   "apkUrl": "https://github.com/neriaco555-del/shirim-app/releases/latest/download/shirim.apk",
-  "notes": "עדכון 1.6.2: התראה והודעת מערכת על עדכון זמין, בדיקת עדכונים תקופתית ברקע, ושיפורי יציבות.",
+  "notes": "עדכון 1.6.3: התראות עדכון מהירות יותר (בדיקה כל שעה) ושיפורי יציבות.",
   "size": 61899053
 }
