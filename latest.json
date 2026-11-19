@@ -1,7 +1,7 @@
 {
-  "versionCode": 22,
-  "versionName": "1.8.0",
+  "versionCode": 23,
+  "versionName": "1.8.1",
   "apkUrl": "https://github.com/neriaco555-del/shirim-app/releases/latest/download/shirim.apk",
-  "notes": "תמיכה במולטימדיה ברכב: מצב רכב משופר, ממשק לרוחב ותמיכה ב-Android Auto",
-  "size": 63243965
+  "notes": "הורדות שירים נשמרות עכשיו כקובצי MP3 (192kbps)",
+  "size": 101979783
 }
